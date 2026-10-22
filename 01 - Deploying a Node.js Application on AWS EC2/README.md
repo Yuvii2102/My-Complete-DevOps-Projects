@@ -353,11 +353,8 @@ flowchart TD
 
 - Never upload `.pem` private keys or real API secrets to GitHub.
 - Keep `.env` out of version control.
-- Use least-privilege IAM permissions.
-- Restrict inbound ports to the minimum necessary.
-- Do not expose development ports publicly in production without a security review.
-- Use HTTPS for public-facing applications.
-- Consider a process manager, reverse proxy, and monitoring for a more reliable deployment.
+- Use IAM permissions.
+- Restrict inbound ports.
 
 ## 📚 Key Learnings
 
@@ -381,7 +378,7 @@ Through this project, I gained hands-on practice with:
 
 ## 👨‍💻 Author
 
-**Yuvraj**  
+Yuvraj  
 Cloud & DevOps Learner
 
 *Learning by building, documenting, breaking and fixing — one project at a time.*
