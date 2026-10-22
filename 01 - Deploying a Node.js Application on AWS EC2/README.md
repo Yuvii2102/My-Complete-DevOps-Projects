@@ -4,7 +4,7 @@ Deployed a Node.js application on an Ubuntu EC2 instance, configuring the runtim
 
 Technologies Used: AWS EC2, Ubuntu, Node.js, Express.js, Git, npm
 
-📖 [View Project Documentation](https://github.com/Yuvii2102/My-Devops-Cloud-Journey/blob/main/DevOps-Labs-and-Projects/03-AWS-EC2-Node%20Js-Deployment/README.md)
+📖 [View My Full Project ](https://github.com/Yuvii2102/My-Devops-Cloud-Journey/blob/main/DevOps-Labs-and-Projects/03-AWS-EC2-Node%20Js-Deployment/README.md)
 
 From a Node.js application to a live website using AWS EC2.
 
