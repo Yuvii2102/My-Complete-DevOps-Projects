@@ -319,6 +319,30 @@ If the application is running and networking is configured correctly, you should
 
 **Important:** The public IPv4 address may change after stopping and starting an instance unless an Elastic IP or another stable addressing arrangement is used.
 
+## 📱 Accessing the Application from My Mobile Phone
+
+After deploying the application, I also tested it on my mobile phone.
+
+I used the public IPv4 address of my EC2 instance and port `3000` to open the application in my phone's browser.
+
+**Steps I followed:**
+
+1. I made sure my Node.js application was running on port `3000`.
+2. I allowed port `3000` in the EC2 Security Group.
+3. I copied the public IPv4 address of my EC2 instance.
+4. I opened my mobile browser.
+5. I entered the following address:
+
+```text
+http://YOUR_PUBLIC_IP:3000
+```
+
+I could access the application from both my PC and my mobile phone. This helped me understand how users can access an application running on a cloud server over the internet.
+
+**What I learned:** A running application can be accessed from different devices when the server, public IP address, port, and network rules are configured correctly.
+
+
+
 ## 🔄 Complete Deployment Flow
 
 ```mermaid
