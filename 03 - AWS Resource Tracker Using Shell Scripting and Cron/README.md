@@ -1,4 +1,4 @@
-# ☁️ AWS Resource Tracker Using Shell Scripting and Cron
+# ☁️  AWS Resource Tracker Using Shell Scripting and Cron
 
 ## 1. About This Project
 
