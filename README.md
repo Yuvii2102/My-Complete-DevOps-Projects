@@ -14,7 +14,7 @@
 
 • My goal is to become a skilled **Cloud & DevOps Engineer** by gaining hands-on experience, understanding real-world challenges and continuously improving my technical skills.
 
-## 📈 Learning in Public
+## 🛠️ Learning in Public
 
 • I believe in **learning by doing**, documenting what I learn and sharing my progress with others. Every project in this repository represents a step forward in my journey.
 
