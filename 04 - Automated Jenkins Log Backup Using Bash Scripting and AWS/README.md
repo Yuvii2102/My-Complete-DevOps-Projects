@@ -415,7 +415,6 @@ This project demonstrates the log-backup process using Bash scripting, Jenkins, 
 
 ## 👨‍💻 Author
 
-**Yuvraj R.**
+**Yuvraj.R**
 
-Cloud & DevOps Learning Journey
 
