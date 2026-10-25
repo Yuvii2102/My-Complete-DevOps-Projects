@@ -392,13 +392,13 @@ This project demonstrates a simple way to reduce the cost of storing Jenkins bui
 3. The script uploads those logs to an Amazon S3 bucket using AWS CLI.
 4. The organisation can configure S3 Lifecycle Management to move older logs to lower-cost storage classes, such as S3 Glacier Flexible Retrieval or S3 Glacier Deep Archive, when appropriate.
 
-### 💰 How This Helps an Organisation
+### 💰 How This Project Helps an Organisation 
 
-- **Cost optimisation:** Organisations can reduce their dependence on expensive log storage for logs that only need to be retained for future reference.
-- **Reliable backups:** Build logs are stored separately in S3, helping teams retain a copy if the original Jenkins environment becomes unavailable.
-- **Easy investigation:** Teams can retrieve historical build logs when investigating failed builds or troubleshooting incidents.
-- **Less manual work:** A script can automate log collection and uploads instead of requiring developers to copy files manually.
-- **Storage lifecycle management:** Older logs can be transitioned to lower-cost storage classes based on the organisation's retention and access requirements.
+- Save money: Storing old log files in cheaper storage can help reduce costs.
+- Keep backup: Logs are saved in Amazon S3, so the team has another copy if something goes wrong with Jenkins.
+- Find problems easily: Developers can check old logs to understand why a build failed.
+- Save time: The shell script uploads logs automatically, so developers don't need to upload them manually.
+- Save storage costs: Older logs can be moved to cheaper S3 storage to reduce the cost of keeping them for a long time.
 
 ### 🏢 Example Scenario
 
