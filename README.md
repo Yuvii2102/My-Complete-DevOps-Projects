@@ -1,12 +1,12 @@
 <h1 align="center"> Welcome to My-Complete-DevOps-Projects</h1>
 
-### ☁️ My Cloud & DevOps Learning Journey
+### <h1 align="center"> ☁️ My Cloud & DevOps Learning Journey</h1>
 
-🔸 A hands-on collection of my **Cloud and DevOps projects**, documenting my learning journey through AWS, Linux, Git, Docker, Kubernetes, Terraform, Ansible, CI/CD, monitoring and automation.
+• A hands-on collection of my **Cloud and DevOps projects**, documenting my learning journey through AWS, Linux, Git, Docker, Kubernetes, Terraform, Ansible, CI/CD, monitoring and automation.
 
-🔸 This repository showcases how I put my learning into practice by **building, deploying, automating and monitoring real-world applications and infrastructure.**
+• This repository showcases how I put my learning into practice by **building, deploying, automating and monitoring real-world applications and infrastructure.**
 
-🔸 I'm continuously learning and improving my skills by exploring industry tools, solving technical challenges and documenting my journey from learning concepts to building practical projects.
+• I'm continuously learning and improving my skills by exploring industry tools, solving technical challenges and documenting my journey from learning concepts to building practical projects.
 
 ---
 
@@ -20,4 +20,4 @@
 
 ---
 
-### 🌱 Let's Learn, Build, Automate and Grow Together! 
+### 🌱 Let's Learn, Build, Automate and Grow Together! 🔸
