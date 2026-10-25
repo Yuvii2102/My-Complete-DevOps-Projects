@@ -20,4 +20,4 @@
 
 ---
 
-### 🌱 Let's Learn, Build, Automate and Grow Together! 🔸
+### 🌱 Let's Learn, Build, Automate and Grow Together! 
