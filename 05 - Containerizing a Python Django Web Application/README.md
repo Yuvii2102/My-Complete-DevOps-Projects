@@ -1,4 +1,4 @@
-# 05. Containerizing a Python Django Web Application Using Docker
+# Containerizing a Python Django Web Application Using Docker
 
 ## 1. About the Project
 
