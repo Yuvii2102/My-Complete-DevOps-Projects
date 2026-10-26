@@ -1,0 +1,275 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yuvraj | Cloud & DevOps Lab</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #0b1020;
+            color: #f1f5f9;
+            line-height: 1.6;
+        }
+
+        header {
+            padding: 22px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            border-bottom: 1px solid #253047;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .logo span, .accent {
+            color: #42e8c5;
+        }
+
+        nav a {
+            color: #cbd5e1;
+            text-decoration: none;
+            margin-left: 20px;
+        }
+
+        nav a:hover {
+            color: #42e8c5;
+        }
+
+        .hero {
+            padding: 85px 8% 65px;
+        }
+
+        .label {
+            color: #42e8c5;
+            letter-spacing: 2px;
+            font-size: 13px;
+        }
+
+        h1 {
+            font-size: clamp(38px, 7vw, 66px);
+            line-height: 1.12;
+            margin: 22px 0;
+        }
+
+        .intro {
+            max-width: 650px;
+            color: #a9b6ce;
+            font-size: 18px;
+        }
+
+        .button {
+            display: inline-block;
+            margin-top: 25px;
+            margin-right: 10px;
+            padding: 12px 18px;
+            border: 1px solid #42e8c5;
+            border-radius: 8px;
+            text-decoration: none;
+            color: #42e8c5;
+        }
+
+        .button.primary {
+            background: #42e8c5;
+            color: #0b1020;
+            font-weight: bold;
+        }
+
+        section {
+            padding: 30px 8% 55px;
+        }
+
+        .section-label {
+            color: #42e8c5;
+            font-size: 13px;
+            letter-spacing: 2px;
+        }
+
+        h2 {
+            font-size: 32px;
+            margin: 8px 0 24px;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(
+                auto-fit, minmax(220px, 1fr)
+            );
+            gap: 20px;
+        }
+
+        .card {
+            background: #131d32;
+            border: 1px solid #253047;
+            border-radius: 14px;
+            padding: 25px;
+        }
+
+        .card .icon {
+            font-size: 30px;
+        }
+
+        .card h3 {
+            margin: 12px 0;
+        }
+
+        .card p {
+            color: #a9b6ce;
+        }
+
+        .tools {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tools span {
+            border: 1px solid #253047;
+            background: #131d32;
+            border-radius: 7px;
+            padding: 8px 13px;
+            color: #cbd5e1;
+        }
+
+        footer {
+            border-top: 1px solid #253047;
+            padding: 25px;
+            text-align: center;
+            color: #a9b6ce;
+        }
+
+        @media (max-width: 600px) {
+            header {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            nav a {
+                margin: 0 12px 0 0;
+            }
+
+            .hero {
+                padding-top: 55px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">Yuvraj <span>/ DevOps</span></div>
+
+        <nav>
+            <a href="#projects">Focus</a>
+            <a href="#tools">Toolkit</a>
+            <a href="#about">About</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="hero">
+            <p class="label">MY CLOUD & DEVOPS LEARNING LAB</p>
+
+            <h1>
+                Build it.<br>
+                <span class="accent">Break it.</span><br>
+                Learn how it works.
+            </h1>
+
+            <p class="intro">
+                Welcome to my personal lab where I practise cloud
+                infrastructure, containerization, automation and
+                monitoring through hands-on projects.
+            </p>
+
+            <a class="button primary" href="#projects">
+                Explore My Lab ↓
+            </a>
+
+            <a class="button" href="#tools">
+                My Toolkit
+            </a>
+        </div>
+
+        <section id="projects">
+            <p class="section-label">WHAT I'M LEARNING</p>
+            <h2>From Code to Cloud</h2>
+
+            <div class="cards">
+                <article class="card">
+                    <div class="icon">🐳</div>
+                    <h3>Containerization</h3>
+                    <p>
+                        Building Docker images, running containers
+                        and learning port mapping.
+                    </p>
+                </article>
+
+                <article class="card">
+                    <div class="icon">☁️</div>
+                    <h3>Cloud Infrastructure</h3>
+                    <p>
+                        Practising AWS EC2, networking and
+                        cloud deployment.
+                    </p>
+                </article>
+
+                <article class="card">
+                    <div class="icon">⚙️</div>
+                    <h3>Automation</h3>
+                    <p>
+                        Using Linux, Bash and Git to automate
+                        tasks and solve problems.
+                    </p>
+                </article>
+            </div>
+        </section>
+
+        <section id="tools">
+            <p class="section-label">TECHNOLOGIES</p>
+            <h2>My Toolkit used in this project</h2>
+
+            <div class="tools">
+                <span>Linux</span>
+                <span>Bash</span>
+                <span>Git & GitHub</span>
+                <span>Docker</span>
+                <span>AWS</span>
+                <span>Python</span>
+                <span>Django</span>
+            </div>
+        </section>
+
+        <section id="about">
+            <p class="section-label">MY APPROACH</p>
+            <h2>Build. Test. Troubleshoot.</h2>
+
+            <p class="intro">
+                I learn by building practical projects, testing
+                what I create, fixing errors and documenting
+                what I discover along the way.
+            </p>
+        </section>
+    </main>
+
+    <footer>
+        Built by Yuvraj | Cloud & DevOps Learning Journey
+    </footer>
+
+</body>
+</html>
+
