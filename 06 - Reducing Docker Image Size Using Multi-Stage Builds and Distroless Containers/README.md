@@ -135,7 +135,18 @@ From the directory containing the multi-stage Dockerfile, I built the image:
 ```bash
 docker build -t simplecalculator-multistage .
 ```
+If you get an error like this : permission denied while trying to connect to the docker API at unix:///var/run/docker.sock then use 
 
+```bash
+sudo docker build -t simplecalculator-multistage .
+```
+If you don't want to use sudo then run these commands to Add your user to the Docker group
+
+```bash
+sudo usermod -aG docker $USER
+newgrp docker
+docker ps
+```
 I checked the resulting image:
 
 ```bash
