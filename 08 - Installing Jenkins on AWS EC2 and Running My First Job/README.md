@@ -171,30 +171,6 @@ My first CI/CD job on AWS EC2
 Finished: SUCCESS
 ```
 
-🎉 My first Jenkins job ran successfully!
-
-## 📸 13. Final Output
-
-### Jenkins Job Configuration
-
-I added two simple shell commands to my Jenkins job.
-
-![Jenkins Job Configuration](./Final%20output%20images/01-Jenkins-Job-Configuration.png)
-
-### Jenkins Build Result
-
-My first build completed successfully.
-
-![Jenkins Build Result](./Final%20output%20images/02-Jenkins-Build-Success.png)
-
-### Jenkins Console Output
-
-The console showed the output of both commands and the final success message.
-
-![Jenkins Console Output](./Final%20output%20images/03-Jenkins-Console-Output.png)
-
-> **Note:** Save your screenshots in the `Final output images` folder using the filenames shown above, or update the image paths to match your actual filenames.
-
 ## 📚 14. What I Learned
 
 Through this project, I learned:
@@ -213,4 +189,4 @@ Now that my first Jenkins job is working, I want to learn how to connect Jenkins
 
 This is my first step toward learning Jenkins pipelines and CI/CD automation.
 
-Every project helps me learn something new. I will keep practising, building, and improving my Cloud & DevOps skills! 🚀
+Every project helps me learn something new. I will keep practising, building and improving my Cloud & DevOps skills! 
