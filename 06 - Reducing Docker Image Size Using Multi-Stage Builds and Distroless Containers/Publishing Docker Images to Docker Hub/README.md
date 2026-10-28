@@ -44,6 +44,12 @@ sudo docker push yuvi2102/go-calculator:multistage
 
 After resolving the authentication issue, I continued with the image-publishing process.
 
+4.O.. Create a Repository on Docker Hub
+
+Before uploading the images, I manually created a repository named go-calculator on Docker Hub.
+
+This repository stores both Docker images under separate tags, allowing me to distinguish the standard image from the optimized multi-stage image.
+
 ### 5. Tag and Push the Standard Image
 
 Next, I tagged the image built without a multi-stage build.
