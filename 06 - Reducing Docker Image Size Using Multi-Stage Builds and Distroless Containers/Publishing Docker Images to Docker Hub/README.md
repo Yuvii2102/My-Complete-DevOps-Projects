@@ -107,4 +107,13 @@ Both images use different tags within the same repository.
 - How to pull published images for use on another machine.
 - How to maintain separate tags for standard and optimized images.
 
-This step helped me understand how Docker images are stored, shared, and distributed through a container registry.
+This step helped me understand how Docker images are stored, shared and distributed through a container registry.
+
+### Docker Hub Repository
+
+![Docker Hub Repository and Image Tags](./Final%20output%20images/06%20-%20Final%20DockerHub.png)
+
+### Docker Image Size Comparison on Docker Hub
+
+![Docker Hub Image Size Comparison](./Final%20output%20images/07%20-%20Final%20DockerHub.png)
+
