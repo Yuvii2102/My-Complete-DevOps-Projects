@@ -1,4 +1,4 @@
-## 🐳 Step 6: Publishing Docker Images to Docker Hub
+## 🐳 Final Step : Publishing Docker Images to Docker Hub
 
 After building both Docker images, I published them to Docker Hub. This allows me to store, share and pull the images without rebuilding them on another machine.
 
