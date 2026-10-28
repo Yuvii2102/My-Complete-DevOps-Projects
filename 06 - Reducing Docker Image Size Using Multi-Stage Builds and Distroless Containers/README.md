@@ -2,7 +2,7 @@
 
 ## 📌 About the Project
 
-In this project, I worked with a simple calculator application written in Go (Golang).
+In this project, I worked with a calculator application written in Go (Golang).
 
 First, I ran the application directly on my EC2 instance. Then, I created a Docker image using Ubuntu and checked its size.
 
