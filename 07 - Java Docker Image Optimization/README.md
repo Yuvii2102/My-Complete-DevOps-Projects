@@ -1,6 +1,6 @@
 <h1 align="center">Project 07: Java Docker Image Optimization Using Multi-Stage Builds</h1>
 
-## 📌 Project Overview
+## Project Overview
 
 In this project, I containerized a Java application using Docker and compared two approaches:
 
