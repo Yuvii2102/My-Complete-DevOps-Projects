@@ -9,7 +9,7 @@ In this project, I containerized a Java application using Docker and compared tw
 
 The main goal is to reduce Docker image size while keeping the application working correctly.
 
-## 🎯 Project Objectives
+## Project Objectives
 
 - Understand how to containerize a Java application using Docker.
 - Build Docker images with and without multi-stage builds.
