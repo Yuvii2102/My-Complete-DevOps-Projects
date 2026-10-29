@@ -176,5 +176,5 @@ By using a multi-stage build and a Distroless Java runtime, I reduced the image 
 
 This project helped me understand how Docker image optimization improves container efficiency and why choosing the right base image matters in DevOps.
 
-**Project completed as part of my DevOps and Cloud learning journey.** 🚀
+**Project completed as part of my DevOps and Cloud learning journey.** 
 
