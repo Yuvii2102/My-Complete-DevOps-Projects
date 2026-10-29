@@ -44,7 +44,7 @@ The main goal is to reduce Docker image size while keeping the application worki
     └── Main.java
 ```
 
-## 🐳 1. Docker Image Without Multi-Stage Build
+## 1. Docker Image Without Multi-Stage Build
 
 In the first approach, I used Ubuntu as the base image and installed the Java Development Kit (JDK).
 
@@ -80,7 +80,7 @@ docker run -it --rm without-multistage
 
 **Result:** The Docker image size was approximately **394 MB**.
 
-## 🚀 2. Docker Image With Multi-Stage Build
+## 2. Docker Image With Multi-Stage Build
 
 In the second approach, I used a multi-stage Docker build.
 
@@ -142,7 +142,7 @@ docker run -it --rm with-multistage
 
 The multi-stage approach significantly reduced the final Docker image size.
 
-## 🧠 Key Learnings
+## Key Learnings
 
 Through this project, I learned:
 
