@@ -1,6 +1,6 @@
 # Docker Multi-Architecture / Multi-Platform Images
 
-## 1. Why Was Docker Introduced?
+## 1. Why Was Docker Introduced ?
 
 Before Docker, developers and QA engineers faced a common problem called **"It works on my machine!"**
 
