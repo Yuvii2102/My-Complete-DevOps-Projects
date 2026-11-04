@@ -2,29 +2,39 @@
 
 ## Project Overview
 
-In this project, we use Docker Model Runner to download and run an AI model locally. We then integrate the model with a Python Flask application and build a web-based AI assistant.
+In this project, I explored Docker Model Runner and learned how to run AI models locally using Docker.
 
-The application allows users to ask questions through a browser and receive AI-generated responses using a locally running language model.
+I started by enabling Docker Model Runner, exploring available AI models on Docker Hub and downloading SmolLM2. After that, I interacted with the model through PowerShell.
 
-**Project Objective:**
-- Download and run an AI model locally.
-- Interact with the model through the terminal.
-- Understand how Docker Model Runner works with Docker.
-- Integrate a local AI model with a Python application.
-- Build and run the Python application using Docker Compose.
-- Access the AI assistant through a web browser.
+I then cloned Docker's Hello-GenAI repository, explored the Python application and connected it to my locally running AI model. Finally, I built the Python application using Docker and started it with Docker Compose.
+
+The final result was a working AI assistant website where I could ask questions and receive AI-generated responses using a local AI model.
+
+### Project Objectives
+
+- Explore and download AI models from Docker Hub.
+- Enable and configure Docker Model Runner.
+- Run an AI model locally.
+- Interact with the model through PowerShell.
+- Understand how Docker Model Runner connects with Python.
+- Build a Python-based AI assistant.
+- Containerize the application using Docker.
+- Run the application using Docker Compose.
+- Access and test the AI assistant through a browser.
 
 ## 1. Technologies and Tools Used
 
 | Technology | Purpose |
 |---|---|
-| Docker Desktop | Container management and Model Runner |
-| Docker Model Runner | Downloading and serving local AI models |
+| Docker Desktop | Container management and Docker Model Runner |
+| Docker Model Runner | Downloading and running AI models locally |
+| Docker Hub | Discovering and downloading AI models |
 | SmolLM2 | Local language model |
 | llama.cpp | Backend used to execute the language model |
 | Python | Application development |
 | Flask | Python web framework |
-| Docker Compose | Running the application |
+| Docker | Containerizing the application |
+| Docker Compose | Building and running the application |
 | Git | Cloning the project repository |
 | PowerShell | Executing commands |
 | HTML, CSS, JavaScript | Chatbot website interface |
@@ -40,122 +50,213 @@ Before starting the practical, make sure the following tools are installed:
 - PowerShell
 - Internet connection
 
-Verify the installations:
+Open Docker Desktop and make sure Docker Engine is running.
+
+Verify the installations using PowerShell.
+
+**Check Docker:**
 
 ```powershell
 docker --version
+```
+
+**Check Git:**
+
+```powershell
 git --version
+```
+
+**Check Docker Compose:**
+
+```powershell
 docker compose version
+```
+
+**Check Docker Model Runner commands:**
+
+```powershell
 docker model --help
 ```
 
+If all the commands return their version or help information, we can proceed.
+
 ## 3. Enable Docker Model Runner
 
-Open Docker Desktop and make sure Docker Engine is running.
-
-Check the Model Runner status:
+First, check whether Docker Model Runner is running.
 
 ```powershell
 docker model status
 ```
 
-If Docker Model Runner is not running, enable it:
+If it displays that Docker Model Runner is not running, enable it using:
 
 ```powershell
 docker desktop enable model-runner
 ```
 
-Verify again:
+Now check the status again:
 
 ```powershell
 docker model status
 ```
 
-Expected result:
+Expected output:
 
 ```text
 Docker Model Runner is running
 ```
 
-The backend components may initially show as not installed. The required inference backend can be installed when you first run a model.
+The backend status may initially show components such as `llama.cpp` and `diffusers` as not installed.
 
-## 4. Download an AI Model
+This is normal. The required inference backend can be installed when we first run a compatible model.
 
-For this project, we use SmolLM2 because it is a lightweight language model suitable for local experimentation.
+## 4. Explore Available AI Models on Docker Hub
 
-Download the model:
+Before downloading an AI model, I first explored the available models on Docker Hub.
+
+Docker Hub provides a catalog where we can discover different AI models, check their available versions and select the models we want to run locally.
+
+**Docker Hub AI Models:**
+
+https://hub.docker.com/u/ai
+
+### Steps to Find and Select a Model
+
+1. Open the Docker Hub AI models page.
+2. Browse the available model repositories.
+3. You can use the repository search option to find a particular model.
+4. Open the model repository you are interested in.
+5. Check the available tags to see which versions are provided.
+6. Copy the model identifier and the tag you want to use.
+
+For example, we can explore models such as:
+
+- SmolLM2
+- Llama
+- Gemma
+- Other available language models
+
+### Example: Selecting SmolLM2
+
+For this practical, I selected SmolLM2 because it is a lightweight language model suitable for local experimentation.
+
+The model identifier used in our practical was:
+
+```text
+ai/smollm2
+```
+
+**Important:** The model repository page provides the model name and available tags. Use the exact model identifier and tag shown on Docker Hub when downloading a particular version.
+
+### Download the Selected Model
+
+Once we have selected the model, open PowerShell and execute:
 
 ```powershell
 docker model pull ai/smollm2
 ```
 
-Docker Model Runner downloads the model from the model registry and stores it locally.
+Docker Model Runner downloads the selected model from the model registry and stores it locally.
 
-Verify the downloaded model:
+The first download may take some time depending on the model size and internet speed.
+
+### Verify the Downloaded Model
 
 ```powershell
 docker model list
 ```
 
-Check the model details:
+This displays the models downloaded to the local environment.
+
+To view information about a particular model:
 
 ```powershell
 docker model show ai/smollm2
 ```
 
-## 5. Run the AI Model Through the Terminal
+In our practical, SmolLM2 was downloaded successfully and appeared in the local model list.
 
-Start the model in interactive chat mode:
+**Note:** We can follow the same process to download other compatible models from Docker Hub. Just replace `ai/smollm2` with the model identifier and tag we selected.
+
+## 5. Run the AI Model Through PowerShell
+
+After downloading SmolLM2, I wanted to test whether the model was working correctly before connecting it to a Python application.
+
+### Start the Model in Interactive Mode
+
+Execute:
 
 ```powershell
 docker model run ai/smollm2
 ```
 
-The first execution may install the required inference backend. In our practical, Docker Model Runner installed the `llama.cpp` backend automatically.
+The first execution may install the required inference backend.
 
-Once the model starts, ask questions:
+In our practical, Docker Model Runner installed the `llama.cpp` backend automatically.
+
+Once the model starts, we can ask questions directly through PowerShell.
+
+**Example 1:**
 
 ```text
 What is Docker?
 ```
 
+**Example 2:**
+
 ```text
 What is Kubernetes?
 ```
+
+**Example 3:**
 
 ```text
 Explain the difference between Docker and Kubernetes.
 ```
 
-The model generates responses directly in PowerShell.
+The model processes the questions and generates responses directly in the terminal.
 
-To exit the interactive chat, use:
+### Run the Model with a Single Prompt
 
-```text
-Ctrl + C
-```
-
-You can also provide a single prompt without entering interactive mode:
+We can also provide a question directly without entering interactive chat mode.
 
 ```powershell
 docker model run ai/smollm2 "What is Docker?"
 ```
 
-Verify running models:
+### Exit Interactive Chat
+
+To exit the interactive session, press:
+
+```text
+Ctrl + C
+```
+
+### Verify Running Models
 
 ```powershell
 docker model ps
 ```
 
-## 6. Clone the Python AI Assistant Project
+This displays the models currently loaded and running.
 
-We use Docker's official Hello-GenAI repository.
+At this point, we have successfully downloaded SmolLM2 and interacted with it through PowerShell.
 
-Repository:
+## 6. Clone the Hello-GenAI Project from GitHub
+
+After testing the model through the terminal, the next step was to integrate it with a Python application.
+
+For this, I used Docker's official Hello-GenAI repository.
+
+**GitHub Repository:**
 
 https://github.com/docker/hello-genai
 
-Navigate to your working directory:
+This repository contains example GenAI applications built using different programming languages, including Python, Node.js, Go and Rust.
+
+### Clone the Repository
+
+First, navigate to your working directory.
 
 ```powershell
 cd C:\Users\Yuvraj\multi-arc-demo
@@ -179,7 +280,7 @@ List the files:
 dir
 ```
 
-The repository contains examples for multiple programming languages.
+The repository contains the following structure:
 
 ```text
 hello-genai/
@@ -198,11 +299,11 @@ hello-genai/
 └── README.md
 ```
 
-For this practical, we use the Python application.
+For this practical, I focused on the Python application.
 
 ## 7. Explore the Python Application
 
-Navigate to the Python project:
+Navigate to the Python application directory:
 
 ```powershell
 cd py-genai
@@ -214,7 +315,7 @@ List the files:
 dir
 ```
 
-Project structure:
+The Python project structure looks like this:
 
 ```text
 py-genai/
@@ -232,34 +333,51 @@ py-genai/
 └── test_static.py
 ```
 
-Important files:
+### Important Files and Folders
 
 | File / Folder | Purpose |
 |---|---|
-| `app.py` | Main Python application |
-| `templates/` | HTML templates for the chatbot |
-| `static/` | CSS, JavaScript and static assets |
+| `app.py` | Main Python application logic |
+| `templates/` | HTML templates used for the website |
+| `static/` | CSS, JavaScript and other static files |
 | `Dockerfile` | Instructions for building the Python image |
 | `docker-compose.yml` | Defines the Python application service |
 | `requirements.txt` | Python dependencies |
-| `README.md` | Project documentation |
+| `requirements.lock.txt` | Locked dependency versions |
+| `README.md` | Project instructions |
 | `run_app.sh` | Application startup script |
+| `test_static.py` | Static file tests |
 
-Read the Python application instructions:
+### Read the Project Documentation
+
+Execute:
 
 ```powershell
 Get-Content README.md
 ```
 
+The README explains the application configuration, available API endpoints and different ways to run the application.
+
+Some important API endpoints mentioned in the documentation are:
+
+| Endpoint | Purpose |
+|---|---|
+| `GET /` | Opens the chatbot website |
+| `POST /api/chat` | Sends a question to the AI model |
+| `GET /health` | Checks application health |
+| `GET /api/docs` | Displays API documentation |
+
 ## 8. Understand the Docker Compose Configuration
 
-Read the Compose file:
+Before starting the application, I inspected the Docker Compose file.
+
+Execute:
 
 ```powershell
 Get-Content docker-compose.yml
 ```
 
-The configuration contains the following important sections:
+The configuration contains the following sections.
 
 ### Include
 
@@ -280,7 +398,9 @@ services:
       dockerfile: Dockerfile
 ```
 
-This defines a Python service and tells Docker to build the application image using the Dockerfile in the current directory.
+This defines a service named `python-genai`.
+
+Docker uses the current directory as the build context and the Dockerfile to build the Python application image.
 
 ### Port Mapping
 
@@ -289,10 +409,14 @@ ports:
   - "8081:8080"
 ```
 
-- `8081` is the Windows host port.
-- `8080` is the container port.
+This maps the Windows host port to the port inside the Python container.
 
-We access the application through port 8081 in our browser.
+| Port | Purpose |
+|---|---|
+| 8081 | Windows host port |
+| 8080 | Python container port |
+
+We access the application through port `8081` in our browser.
 
 ### Environment Variables
 
@@ -328,13 +452,17 @@ Docker periodically checks the health endpoint to verify that the Python applica
 
 ## 9. Configure the AI Model
 
-Move to the parent project directory:
+Now we need to connect our downloaded SmolLM2 model to the Python application.
+
+The `models.yml` file is located in the main `hello-genai` directory, not inside `py-genai`.
+
+Move back to the parent directory:
 
 ```powershell
 cd ..
 ```
 
-You should now be inside:
+Our current location should be:
 
 ```text
 C:\Users\Yuvraj\multi-arc-demo\hello-genai
@@ -346,7 +474,7 @@ Read the model configuration:
 Get-Content models.yml
 ```
 
-The original configuration used Llama 3.2:
+The original configuration was:
 
 ```yaml
 models:
@@ -355,9 +483,13 @@ models:
     context_size: 2048
 ```
 
-Since we already downloaded SmolLM2, we updated the configuration to use that model.
+This configuration points to Llama 3.2.
 
-Open the file:
+Since we already downloaded SmolLM2, we need to update the model configuration.
+
+### Update models.yml
+
+Open the file using Notepad:
 
 ```powershell
 notepad models.yml
@@ -380,50 +512,63 @@ Verify the changes:
 Get-Content models.yml
 ```
 
-**Important:** We kept the configuration name `llama` because the Python service references that name in its Docker Compose configuration. Only the actual model was changed to `ai/smollm2`.
+### Why did we keep the name llama?
+
+In the Python application's Docker Compose configuration, the service references a model named `llama`.
+
+```yaml
+models:
+  - llama
+```
+
+This is the Compose model reference, not the actual model repository name.
+
+Therefore, we kept the name `llama` and changed only the model it points to.
+
+Now the Python application is configured to use our downloaded SmolLM2 model.
 
 ## 10. Build and Start the Python Application
 
-Navigate back to the Python application directory:
+After updating the model configuration, navigate back to the Python application directory.
 
 ```powershell
 cd py-genai
 ```
 
-Verify your current location:
+Verify the current location:
 
 ```powershell
 pwd
 ```
 
-Expected directory:
+Expected location:
 
 ```text
 C:\Users\Yuvraj\multi-arc-demo\hello-genai\py-genai
 ```
 
-Start the application:
+Now build and start the application using Docker Compose:
 
 ```powershell
 docker compose up --build
 ```
 
-### What happens during execution?
+### What Happens During Execution?
 
-1. Docker Compose reads the Python `docker-compose.yml` file.
-2. It imports the model configuration from `../models.yml`.
+1. Docker Compose reads the Python application's `docker-compose.yml`.
+2. It imports the model configuration from the parent directory.
 3. Docker builds the Python application image using the Dockerfile.
 4. Docker creates the required network.
 5. Docker creates the Python application container.
 6. Docker Model Runner provides access to the configured SmolLM2 model.
 7. The Python Flask application starts inside the container.
-8. The application becomes accessible through port 8081 on Windows.
+8. The application becomes accessible through port `8081` on Windows.
 
-The first build may take some time because Docker needs to download dependencies and build the application image.
+The first build may take a few minutes because Docker needs to download dependencies and build the application image.
 
-### Expected Application Logs
+### Verify the Application Logs
 
-Look for logs similar to:
+Look for output similar to:
 
 ```text
 Server starting on http://localhost:8080
@@ -432,11 +577,18 @@ Using LLM endpoint:
 http://model-runner.docker.internal/v1/chat/completions
 
 Using model: ai/smollm2
-
-Running on http://127.0.0.1:8080
 ```
 
-You may also see health check requests:
+You may also see Flask application logs:
+
+```text
+Serving Flask app 'app'
+
+Running on http://127.0.0.1:8080
+Running on http://172.19.0.2:8080
+```
+
+And health check responses:
 
 ```text
 GET /health HTTP/1.1 200
@@ -448,13 +600,17 @@ A `200` response indicates that the health endpoint is responding successfully.
 
 ## 11. Access the AI Assistant Website
 
-Open your browser and visit:
+Once the Python application has started successfully, open your browser.
 
+Visit:
+
+```text
 http://localhost:8081
+```
 
 You should see the Hello-GenAI in Python interface.
 
-The website displays:
+The website contains:
 
 - AI Assistant heading
 - Chat interface
@@ -462,23 +618,35 @@ The website displays:
 - Send button
 - AI-generated responses
 
-Try asking these questions:
+### Test the AI Assistant
+
+Enter a few questions into the chatbot.
+
+**Test 1:**
 
 ```text
 What is Docker?
 ```
 
+**Test 2:**
+
 ```text
 What is Kubernetes?
 ```
+
+**Test 3:**
 
 ```text
 What is the difference between AWS EC2 and S3?
 ```
 
-The Python application sends your questions to Docker Model Runner, which uses SmolLM2 to generate responses.
+Click Send and wait for the responses.
 
-The generated responses are displayed on the website.
+The Python application sends your questions to Docker Model Runner, which uses SmolLM2 to generate answers.
+
+The generated responses are then displayed on the website.
+
+At this point, we have successfully built and tested our local AI assistant.
 
 ## 12. Application Architecture
 
@@ -502,53 +670,59 @@ flowchart TD
 1. The user enters a question in the browser.
 2. The frontend sends the question to the Python Flask application.
 3. Flask receives the request through the `/api/chat` endpoint.
-4. Python communicates with Docker Model Runner.
+4. Python communicates with Docker Model Runner through its API.
 5. Docker Model Runner passes the request to SmolLM2.
-6. SmolLM2 generates the response using the inference backend.
-7. The response travels back to the Python application.
-8. The browser displays the generated answer.
+6. SmolLM2 processes the question using the inference backend.
+7. The generated response travels back to the Python application.
+8. The browser displays the AI-generated answer.
 
 ## 13. Verify the Running Application
 
 Open a second PowerShell window without closing the first one.
 
-Check the downloaded models:
+### Check Downloaded Models
 
 ```powershell
 docker model list
 ```
 
-Check running models:
+### Check Running Models
 
 ```powershell
 docker model ps
 ```
 
-Navigate to the Python project directory:
+### Navigate to the Python Project
 
 ```powershell
 cd C:\Users\Yuvraj\multi-arc-demo\hello-genai\py-genai
 ```
 
-Check the Compose services:
+### Check Docker Compose Containers
 
 ```powershell
 docker compose ps
 ```
 
-Check application logs:
+### View Application Logs
 
 ```powershell
 docker compose logs -f python-genai
 ```
 
-Verify the application in your browser:
+### Verify the Website
+
+Open:
 
 ```text
 http://localhost:8081
 ```
 
+Make sure the chatbot loads and responds to questions.
+
 ## 14. Stop the Application
+
+When we finish using the AI assistant, we need to stop the application.
 
 Return to the PowerShell window where Docker Compose is running.
 
@@ -560,7 +734,7 @@ Ctrl + C
 
 This stops the foreground application.
 
-Then execute:
+Now execute:
 
 ```powershell
 docker compose down
@@ -578,7 +752,9 @@ docker model list
 
 ## 15. How to Run This Project Again
 
-If you return to this project after several days or months, follow these steps.
+I have included these steps so that I can easily execute the project again even after several months.
+
+There is no need to clone the repository or download the model again if everything is already available locally.
 
 ### Step 1: Start Docker Desktop
 
@@ -596,7 +772,7 @@ If it is not running:
 docker desktop enable model-runner
 ```
 
-### Step 3: Verify the model
+### Step 3: Verify the Downloaded Model
 
 ```powershell
 docker model list
@@ -608,19 +784,25 @@ If SmolLM2 is missing, download it again:
 docker model pull ai/smollm2
 ```
 
-### Step 4: Navigate to the Python application
+### Step 4: Navigate to the Python Application
 
 ```powershell
 cd C:\Users\Yuvraj\multi-arc-demo\hello-genai\py-genai
 ```
 
-### Step 5: Start the application
+### Step 5: Start the Application
 
 ```powershell
 docker compose up --build
 ```
 
-### Step 6: Open the website
+If the application image has already been built and there are no changes, we can also use:
+
+```powershell
+docker compose up
+```
+
+### Step 6: Open the Website
 
 Visit:
 
@@ -628,22 +810,24 @@ Visit:
 http://localhost:8081
 ```
 
-Your local AI assistant is ready to use.
+The local AI assistant is ready to use.
 
 ## 16. Troubleshooting
 
 | Problem | Possible Solution |
 |---|---|
-| Docker command not recognized | Install Docker Desktop and verify its PATH configuration. |
+| Docker command not recognized | Check Docker Desktop installation and PATH configuration. |
 | Docker Model Runner is not running | Execute `docker desktop enable model-runner`. |
 | Model is not available locally | Execute `docker model pull ai/smollm2`. |
 | Model Runner backend is missing | Run the model using `docker model run ai/smollm2` and allow the required backend to install. |
-| Model download fails | Check your internet connection and try pulling the model again. |
+| Model download fails | Check the internet connection and try downloading again. |
+| Git clone fails | Check internet connectivity and the GitHub repository URL. |
 | Docker Compose build fails | Check the Dockerfile, dependencies and build logs. |
 | Port 8081 is already in use | Stop the application using that port or change the host port mapping. |
-| Website is not opening | Check `docker compose ps` and inspect application logs. |
+| Website is not opening | Check `docker compose ps` and application logs. |
 | AI responses are not generated | Verify Model Runner status, model configuration and application logs. |
 | Python container cannot connect to Model Runner | Check the Compose model configuration and Docker Model Runner availability. |
+| Model configuration is not found | Make sure you are running Compose from the `py-genai` directory and that `models.yml` exists in the parent directory. |
 
 ## 17. Important Commands Reference
 
@@ -656,26 +840,42 @@ docker model status
 # Enable Model Runner
 docker desktop enable model-runner
 
+# Explore available models
+docker model search smollm2
+
 # Download an AI model
 docker model pull ai/smollm2
 
 # List downloaded models
 docker model list
 
+# Show model information
+docker model show ai/smollm2
+
 # Run an AI model
 docker model run ai/smollm2
 
-# Run a model with a single prompt
+# Run with a single prompt
 docker model run ai/smollm2 "What is Docker?"
 
 # Show running models
 docker model ps
 
-# Inspect model information
-docker model show ai/smollm2
-
 # Remove a downloaded model
 docker model rm ai/smollm2
+```
+
+### Git Commands
+
+```powershell
+# Clone the repository
+git clone https://github.com/docker/hello-genai.git
+
+# Enter the project directory
+cd hello-genai
+
+# List files
+dir
 ```
 
 ### Docker Compose Commands
@@ -696,7 +896,7 @@ docker compose logs -f python-genai
 # Stop and remove containers
 docker compose down
 
-# Rebuild the application
+# Rebuild the application without using the build cache
 docker compose build --no-cache
 ```
 
@@ -704,7 +904,8 @@ docker compose build --no-cache
 
 - [x] Verified Docker Desktop installation.
 - [x] Enabled Docker Model Runner.
-- [x] Downloaded SmolLM2.
+- [x] Explored AI models on Docker Hub.
+- [x] Selected and downloaded SmolLM2.
 - [x] Verified the downloaded model.
 - [x] Installed the llama.cpp inference backend.
 - [x] Ran SmolLM2 through PowerShell.
@@ -714,24 +915,42 @@ docker compose build --no-cache
 - [x] Inspected Docker Compose configuration.
 - [x] Updated `models.yml` to use SmolLM2.
 - [x] Built the Python Docker image.
-- [x] Started the Python application using Docker Compose.
+- [x] Started the application using Docker Compose.
 - [x] Opened the chatbot at `localhost:8081`.
 - [x] Tested AI-generated responses through the website.
 
-## 19. Final Outcome
+## 19. Useful Links
+
+| Resource | Link |
+|---|---|
+| Docker Hub AI Models | https://hub.docker.com/u/ai |
+| Hello-GenAI GitHub Repository | https://github.com/docker/hello-genai |
+| Docker Model Runner Documentation | https://docs.docker.com/ai/model-runner/ |
+| Docker Compose Models Documentation | https://docs.docker.com/ai/compose/models-and-compose/ |
+| Docker Model Runner CLI Reference | https://docs.docker.com/reference/cli/docker/model/ |
+
+## 20. Final Outcome
 
 Successfully built and executed a local AI assistant using Docker Model Runner and Python.
 
-Downloaded and ran SmolLM2 locally, integrated it with a Python Flask application, containerized the application using Docker and started it using Docker Compose.
+I explored AI models through Docker Hub, downloaded SmolLM2 and tested it through the terminal. I then integrated the model with a Python Flask application, built the application image using Docker and started it using Docker Compose.
 
-The final application allows users to interact with a locally running AI model through a web-based chatbot without depending on a hosted LLM API.
+Finally, I accessed the chatbot through the browser and successfully tested AI-generated responses.
 
-**Project Repository:** https://github.com/docker/hello-genai
+This practical helped me understand how Docker can be used not only to run applications inside containers but also to work with local AI models and integrate them into software applications.
+
+**Project Name:** Local AI Assistant Using Docker Model Runner and Python
+
+**Model Used:** SmolLM2
+
+**Application:** Hello-GenAI in Python
 
 **Application URL:** http://localhost:8081
 
-**Documentation:** My-Devops-Cloud-Journey / DevOps-Labs-and-Projects
+**Source Repository:** https://github.com/docker/hello-genai
+
+**Documentation Repository:** My-Devops-Cloud-Journey / DevOps-Labs-and-Projects
 
 ---
 
-**Note:** This document records the practical workflow performed on Windows using Docker Desktop and PowerShell. Model availability, Docker Desktop requirements and repository files may change over time. Check the official documentation if you encounter version-related differences.
+*This documentation records my hands-on practical using Windows, Docker Desktop and PowerShell. I have included the commands, configuration changes and execution steps so that I can repeat the project whenever needed.*
