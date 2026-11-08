@@ -1,0 +1,17 @@
+---
+- name: Install Apache
+  ansible.builtin.apt:
+    name: apache2
+    state: present
+    update_cache: true
+
+- name: Copy website file
+  ansible.builtin.copy:
+    src: index.html
+    dest: /var/www/html/index.html
+
+- name: Start and enable Apache
+  ansible.builtin.service:
+    name: apache2
+    state: started
+    enabled: true
