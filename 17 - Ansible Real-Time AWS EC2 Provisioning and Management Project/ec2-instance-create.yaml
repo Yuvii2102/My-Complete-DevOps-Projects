@@ -1,0 +1,40 @@
+
+---
+- name: Create three EC2 instances
+  hosts: localhost
+  connection: local
+  gather_facts: false
+
+  vars_files:
+    - password.yaml
+
+  tasks:
+    - name: Create EC2 instances
+      amazon.aws.ec2_instance:
+        name: "{{ item.name }}"
+        key_name: ansible-key
+        instance_type: t2.micro
+        image_id: "{{ item.image }}"
+        region: us-east-1
+        vpc_subnet_id: subnet-08c7deca2bf1fc730
+        network_interfaces:
+          - assign_public_ip: true
+            groups:
+              - sg-0f0b23b1d02bdccd9
+        aws_access_key: "{{ ec2_access_key }}"
+        aws_secret_key: "{{ ec2_secret_key }}"
+        state: present
+        wait: true
+        tags:
+          Name: "{{ item.name }}"
+
+      loop:
+        - name: Manage-Node-1
+          image: ami-0d97d7f07b25dd693
+
+        - name: Manage-Node-2
+          image: ami-0d97d7f07b25dd693
+
+        - name: Manage-Node-3
+          image: ami-0c230065b91270bc6
+
