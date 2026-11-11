@@ -1,1 +1,16 @@
 # Ansible playbook to install htop on EC2 instances
+#
+#---
+- name: Install htop on EC2 instances
+  hosts: all
+  become: true
+
+  tasks:
+    - name: Update package list
+      ansible.builtin.apt:
+        update_cache: yes
+
+    - name: Install htop
+      ansible.builtin.apt:
+        name: htop
+        state: present
