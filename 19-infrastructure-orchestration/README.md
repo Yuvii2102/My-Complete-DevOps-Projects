@@ -49,9 +49,9 @@ The main objective was to provision EC2 instances using Terraform and configure 
        AWS Integration                  |
               |                         |
               v                         |
-       AWS EC2 Instances                 |
+       AWS EC2 Instances                |
               |                         |
-       Terraform Outputs                 |
+       Terraform Outputs                |
        instance_public_ips              |
               |                         |
               v                         |
