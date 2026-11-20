@@ -1,4 +1,4 @@
-# Complete DevOps Project 1: Deploying an Application on AWS EKS
+# Complete DevOps Project : Deploying an Application on AWS EKS
 
 ## 1. Project Introduction
 
